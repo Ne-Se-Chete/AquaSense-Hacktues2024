@@ -1,0 +1,103 @@
+{
+  "brand": "server",
+  "brandUrl": "server",
+  "title": "server",
+  "description": "server",
+  "projectName": "server",
+  "workspaceName": "workspace",
+  "filePath": "edm.model",
+  "templateId": "template-application-angular/template/template.js",
+  "tablePrefix": "",
+  "perspectives": {
+    "entities": {
+      "views": [
+        "SensorData"
+      ],
+      "name": "entities",
+      "label": "entities",
+      "order": "100",
+      "icon": "/services/web/resources/unicons/copy.svg",
+      "role": ""
+    }
+  },
+  "models": [
+    {
+      "properties": [
+        {
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
+          "dataAutoIncrement": true,
+          "dataLength": "0",
+          "dataName": "SENSORDATA_ID",
+          "dataNullable": true,
+          "dataPrimaryKey": true,
+          "dataType": "INTEGER",
+          "dataUnique": false,
+          "isCalculatedProperty": false,
+          "isRequiredProperty": false,
+          "name": "Id",
+          "widgetIsMajor": true,
+          "widgetLength": "20",
+          "widgetSize": "",
+          "widgetType": "TEXTBOX",
+          "dataNotNull": false,
+          "widgetLabel": "Id",
+          "widgetDropdownUrl": "",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
+          "inputRule": ""
+        },
+        {
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
+          "dataAutoIncrement": false,
+          "dataLength": "20",
+          "dataName": "SENSORDATA_TESTER",
+          "dataNullable": true,
+          "dataPrimaryKey": false,
+          "dataType": "VARCHAR",
+          "dataUnique": false,
+          "isCalculatedProperty": false,
+          "isRequiredProperty": false,
+          "name": "tester",
+          "widgetIsMajor": true,
+          "widgetLength": "20",
+          "widgetSize": "",
+          "widgetType": "TEXTBOX",
+          "dataNotNull": false,
+          "widgetLabel": "tester",
+          "widgetDropdownUrl": "",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
+          "minLength": 0,
+          "maxLength": 20,
+          "inputRule": ""
+        }
+      ],
+      "caption": "Manage entity SensorData",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"SENSORDATA\"",
+      "dataName": "SENSORDATA",
+      "dataQuery": "",
+      "disableGeneration": "false",
+      "icon": "/services/web/resources/unicons/file.svg",
+      "layoutType": "MANAGE",
+      "menuIndex": "100",
+      "menuKey": "sensordata",
+      "menuLabel": "SensorData",
+      "name": "SensorData",
+      "navigationPath": "/Home",
+      "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
+      "perspectiveName": "entities",
+      "perspectiveOrder": "100",
+      "perspectiveRole": "",
+      "title": "SensorData",
+      "tooltip": "SensorData",
+      "type": "PRIMARY",
+      "referencedProjections": [],
+      "primaryKeys": [
+        "Id"
+      ],
+      "primaryKeysString": "Id"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+    "module": "server/gen/ui/entities/SensorData/dialog-filter/view.js",
+    "extensionPoint": "server-dialog-window",
+    "description": "server - Application Dialog Window"
+}

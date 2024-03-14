@@ -1,0 +1,13 @@
+<model>
+ <entities>
+  <entity name="SensorData" dataName="SENSORDATA" dataCount="SELECT COUNT(*) AS COUNT FROM &quot;${tablePrefix}SENSORDATA&quot;" dataQuery="" disableGeneration="false" type="PRIMARY" title="SensorData" caption="Manage entity SensorData" tooltip="SensorData" icon="/services/web/resources/unicons/file.svg" menuKey="sensordata" menuLabel="SensorData" menuIndex="100" layoutType="MANAGE" navigationPath="/Home" perspectiveName="entities" perspectiveIcon="/services/web/resources/unicons/copy.svg" perspectiveOrder="100" perspectiveRole="">
+    <property name="Id" isRequiredProperty="false" isCalculatedProperty="false" calculatedPropertyExpressionCreate="" calculatedPropertyExpressionUpdate="" dataName="SENSORDATA_ID" dataType="INTEGER" dataLength="0" dataNullable="true" dataPrimaryKey="true" dataAutoIncrement="true" dataUnique="false" widgetType="TEXTBOX" widgetSize="" widgetLength="20" widgetIsMajor="true"></property>
+    <property name="tester" isRequiredProperty="false" isCalculatedProperty="false" calculatedPropertyExpressionCreate="" calculatedPropertyExpressionUpdate="" dataName="SENSORDATA_TESTER" dataType="VARCHAR" dataLength="20" dataNullable="true" dataPrimaryKey="false" dataAutoIncrement="false" dataUnique="false" widgetType="TEXTBOX" widgetSize="" widgetLength="20" widgetIsMajor="true"></property>
+  </entity>
+ </entities>
+ <perspectives>
+ </perspectives>
+ <navigations>
+ </navigations>
+ <mxGraphModel><root><mxCell id="0"/><mxCell id="1" parent="0"/><mxCell id="3dbe3172-3e50-4001-b9f9-11447cbe31bc" style="entity" vertex="1" parent="1"><Entity name="SensorData" dataName="SENSORDATA" dataCount="SELECT COUNT(*) AS COUNT FROM &quot;${tablePrefix}SENSORDATA&quot;" title="SensorData" caption="Manage entity SensorData" tooltip="SensorData" menuLabel="SensorData" type="Entity" menuKey="sensordata" disableGeneration="false" as="value"><Array as="referenceProjections"/></Entity><mxGeometry x="130" y="50" width="200" height="80" as="geometry"><mxRectangle width="200" height="28" as="alternateBounds"/></mxGeometry></mxCell><mxCell id="220675a7-8302-3132-9618-02286e9c6902" vertex="1" connectable="0" parent="3dbe3172-3e50-4001-b9f9-11447cbe31bc"><Property name="Id" dataType="INTEGER" dataLength="0" dataPrimaryKey="true" dataAutoIncrement="true" dataName="SENSORDATA_ID" as="value"/><mxGeometry y="28" width="200" height="26" as="geometry"/></mxCell><mxCell id="9a978a6e-6215-9b9f-8eee-5ffffe3504eb" vertex="1" connectable="0" parent="3dbe3172-3e50-4001-b9f9-11447cbe31bc"><Property name="tester" dataName="SENSORDATA_TESTER" as="value"/><mxGeometry y="54" width="200" height="26" as="geometry"/></mxCell></root></mxGraphModel>
+</model>

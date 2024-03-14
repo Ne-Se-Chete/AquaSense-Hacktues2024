@@ -1,0 +1,67 @@
+{
+    "model": {
+        "entities": [
+            {
+                "properties": [
+                    {
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
+                        "dataAutoIncrement": "true",
+                        "dataLength": "0",
+                        "dataName": "SENSORDATA_ID",
+                        "dataNullable": "true",
+                        "dataPrimaryKey": "true",
+                        "dataType": "INTEGER",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "isRequiredProperty": "false",
+                        "name": "Id",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "20",
+                        "dataName": "SENSORDATA_TESTER",
+                        "dataNullable": "true",
+                        "dataPrimaryKey": "false",
+                        "dataType": "VARCHAR",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "isRequiredProperty": "false",
+                        "name": "tester",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    }
+                ],
+                "caption": "Manage entity SensorData",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}SENSORDATA\"",
+                "dataName": "SENSORDATA",
+                "dataQuery": "",
+                "disableGeneration": "false",
+                "icon": "/services/web/resources/unicons/file.svg",
+                "layoutType": "MANAGE",
+                "menuIndex": "100",
+                "menuKey": "sensordata",
+                "menuLabel": "SensorData",
+                "name": "SensorData",
+                "navigationPath": "/Home",
+                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
+                "perspectiveName": "entities",
+                "perspectiveOrder": "100",
+                "perspectiveRole": "",
+                "title": "SensorData",
+                "tooltip": "SensorData",
+                "type": "PRIMARY"
+            }
+        ],
+        "perspectives": [],
+        "navigations": []
+    }
+}
