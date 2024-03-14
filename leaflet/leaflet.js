@@ -1,5 +1,4 @@
 var map = L.map('map');
-var markers = [];
 
 var customMarker = L.Marker.extend({
     options: {
@@ -54,19 +53,22 @@ if (navigator.geolocation) {
 
 
 function createMarker(object){
+    let markers = [];
+
     object.forEach(markerData => {
         const marker = new customMarker([markerData.latitude, markerData.longitude], {
             time: markerData.time,
             pH: markerData.pH
         });
-
+        markers.push(marker);
         marker.addTo(map)
             .bindPopup(`
-                <b>Time:</b> ${marker.options.time}<br>
-                <b>pH:</b> ${marker.options.pH}
+                <div id="popup">
+                    <b>Time:</b> ${marker.options.time}<br>
+                    <b>pH:</b> ${marker.options.pH}
+                </div>
             `);
     });
-
 }
 
 createMarker(data);
