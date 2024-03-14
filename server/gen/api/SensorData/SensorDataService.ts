@@ -119,8 +119,8 @@ class SensorDataService {
     }
 
     private validateEntity(entity: any): void {
-        if (entity.tester?.length > 20) {
-            throw new ValidationError(`The 'tester' exceeds the maximum length of [20] characters`);
+        if (entity.typeTrash?.length > 30) {
+            throw new ValidationError(`The 'typeTrash' exceeds the maximum length of [30] characters`);
         }
         for (const next of validationModules) {
             next.validate(entity);

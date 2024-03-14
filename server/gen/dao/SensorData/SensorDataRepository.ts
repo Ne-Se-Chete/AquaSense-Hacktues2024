@@ -2,14 +2,25 @@ import { query } from "sdk/db";
 import { producer } from "sdk/messaging";
 import { extensions } from "sdk/extensions";
 import { dao as daoApi } from "sdk/db";
+import { EntityUtils } from "../utils/EntityUtils";
 
 export interface SensorDataEntity {
     readonly Id: number;
-    tester?: string;
+    Latitude?: number;
+    Longitude?: number;
+    ph?: number;
+    typeTrash?: string;
+    IsThereOil?: boolean;
+    DateTime?: Date;
 }
 
 export interface SensorDataCreateEntity {
-    readonly tester?: string;
+    readonly Latitude?: number;
+    readonly Longitude?: number;
+    readonly ph?: number;
+    readonly typeTrash?: string;
+    readonly IsThereOil?: boolean;
+    readonly DateTime?: Date;
 }
 
 export interface SensorDataUpdateEntity extends SensorDataCreateEntity {
@@ -20,31 +31,66 @@ export interface SensorDataEntityOptions {
     $filter?: {
         equals?: {
             Id?: number | number[];
-            tester?: string | string[];
+            Latitude?: number | number[];
+            Longitude?: number | number[];
+            ph?: number | number[];
+            typeTrash?: string | string[];
+            IsThereOil?: boolean | boolean[];
+            DateTime?: Date | Date[];
         };
         notEquals?: {
             Id?: number | number[];
-            tester?: string | string[];
+            Latitude?: number | number[];
+            Longitude?: number | number[];
+            ph?: number | number[];
+            typeTrash?: string | string[];
+            IsThereOil?: boolean | boolean[];
+            DateTime?: Date | Date[];
         };
         contains?: {
             Id?: number;
-            tester?: string;
+            Latitude?: number;
+            Longitude?: number;
+            ph?: number;
+            typeTrash?: string;
+            IsThereOil?: boolean;
+            DateTime?: Date;
         };
         greaterThan?: {
             Id?: number;
-            tester?: string;
+            Latitude?: number;
+            Longitude?: number;
+            ph?: number;
+            typeTrash?: string;
+            IsThereOil?: boolean;
+            DateTime?: Date;
         };
         greaterThanOrEqual?: {
             Id?: number;
-            tester?: string;
+            Latitude?: number;
+            Longitude?: number;
+            ph?: number;
+            typeTrash?: string;
+            IsThereOil?: boolean;
+            DateTime?: Date;
         };
         lessThan?: {
             Id?: number;
-            tester?: string;
+            Latitude?: number;
+            Longitude?: number;
+            ph?: number;
+            typeTrash?: string;
+            IsThereOil?: boolean;
+            DateTime?: Date;
         };
         lessThanOrEqual?: {
             Id?: number;
-            tester?: string;
+            Latitude?: number;
+            Longitude?: number;
+            ph?: number;
+            typeTrash?: string;
+            IsThereOil?: boolean;
+            DateTime?: Date;
         };
     },
     $select?: (keyof SensorDataEntity)[],
@@ -78,9 +124,34 @@ export class SensorDataRepository {
                 autoIncrement: true,
             },
             {
-                name: "tester",
+                name: "Latitude",
                 column: "SENSORDATA_TESTER",
+                type: "DOUBLE",
+            },
+            {
+                name: "Longitude",
+                column: "SENSORDATA_PROPERTY3",
+                type: "DOUBLE",
+            },
+            {
+                name: "ph",
+                column: "SENSORDATA_PROPERTY4",
+                type: "DOUBLE",
+            },
+            {
+                name: "typeTrash",
+                column: "SENSORDATA_TYPETRASH",
                 type: "VARCHAR",
+            },
+            {
+                name: "IsThereOil",
+                column: "SENSORDATA_ISTHEREOIL",
+                type: "BOOLEAN",
+            },
+            {
+                name: "DateTime",
+                column: "SENSORDATA_DATETIME",
+                type: "TIMESTAMP",
             }
         ]
     };
@@ -92,15 +163,20 @@ export class SensorDataRepository {
     }
 
     public findAll(options?: SensorDataEntityOptions): SensorDataEntity[] {
-        return this.dao.list(options);
+        return this.dao.list(options).map((e: SensorDataEntity) => {
+            EntityUtils.setBoolean(e, "IsThereOil");
+            return e;
+        });
     }
 
     public findById(id: number): SensorDataEntity | undefined {
         const entity = this.dao.find(id);
+        EntityUtils.setBoolean(entity, "IsThereOil");
         return entity ?? undefined;
     }
 
     public create(entity: SensorDataCreateEntity): number {
+        EntityUtils.setBoolean(entity, "IsThereOil");
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -116,6 +192,7 @@ export class SensorDataRepository {
     }
 
     public update(entity: SensorDataUpdateEntity): void {
+        EntityUtils.setBoolean(entity, "IsThereOil");
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",

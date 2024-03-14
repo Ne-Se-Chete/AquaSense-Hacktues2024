@@ -86,6 +86,13 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 						messageHub.showAlertError("SensorData", `Unable to list/filter SensorData: '${response.message}'`);
 						return;
 					}
+
+					response.data.forEach(e => {
+						if (e.DateTime) {
+							e.DateTime = new Date(e.DateTime);
+						}
+					});
+
 					$scope.data = response.data;
 				});
 			});

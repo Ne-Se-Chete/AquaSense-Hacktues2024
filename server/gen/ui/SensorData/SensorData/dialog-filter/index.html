@@ -29,19 +29,119 @@
                 <fd-form-group dg-header="SensorData Filter" name="entityForm" class="fd-container fd-form-layout-grid-container">
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idtester" dg-required="false" dg-colon="true">tester</fd-form-label>
+                        	<fd-form-label for="idLatitude" dg-required="false" dg-colon="true">Latitude</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
-	                        <fd-form-input-message-group dg-inactive="{{ forms.details['tester'].$valid }}">
-	                            <fd-input id="idtester"
-	                                name="tester"
-	                                state="{{ forms.details['tester'].$valid ? '' : 'error' }}"
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Latitude'].$valid }}">
+	                            <fd-input id="idLatitude"
+	                                name="Latitude"
+	                                state="{{ forms.details['Latitude'].$valid ? '' : 'error' }}"
 									ng-required="false"
-	                                ng-model="entity.tester"
+	                                ng-model="entity.Latitude"
+	                                ng-minlength="${property.minLength} || 0"
+	                                ng-maxlength="${property.maxLength} || -1"
+	                                type="text"
+	                                placeholder="Enter Latitude">
+	                            </fd-input>
+	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+	                        </fd-form-input-message-group>
+	                    </div>
+                    </fd-form-item>
+                    <fd-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<fd-form-label for="idLongitude" dg-required="false" dg-colon="true">Longitude</fd-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--8">
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Longitude'].$valid }}">
+	                            <fd-input id="idLongitude"
+	                                name="Longitude"
+	                                state="{{ forms.details['Longitude'].$valid ? '' : 'error' }}"
+									ng-required="false"
+	                                ng-model="entity.Longitude"
+	                                ng-minlength="${property.minLength} || 0"
+	                                ng-maxlength="${property.maxLength} || -1"
+	                                type="text"
+	                                placeholder="Enter Longitude">
+	                            </fd-input>
+	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+	                        </fd-form-input-message-group>
+	                    </div>
+                    </fd-form-item>
+                    <fd-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<fd-form-label for="idph" dg-required="false" dg-colon="true">ph</fd-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--8">
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['ph'].$valid }}">
+	                            <fd-input id="idph"
+	                                name="ph"
+	                                state="{{ forms.details['ph'].$valid ? '' : 'error' }}"
+									ng-required="false"
+	                                ng-model="entity.ph"
+	                                ng-minlength="${property.minLength} || 0"
+	                                ng-maxlength="${property.maxLength} || -1"
+	                                type="text"
+	                                placeholder="Enter ph">
+	                            </fd-input>
+	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+	                        </fd-form-input-message-group>
+	                    </div>
+                    </fd-form-item>
+                    <fd-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<fd-form-label for="idtypeTrash" dg-required="false" dg-colon="true">typeTrash</fd-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--8">
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['typeTrash'].$valid }}">
+	                            <fd-input id="idtypeTrash"
+	                                name="typeTrash"
+	                                state="{{ forms.details['typeTrash'].$valid ? '' : 'error' }}"
+									ng-required="false"
+	                                ng-model="entity.typeTrash"
 	                                ng-minlength="0.0 || 0"
 	                                ng-maxlength="20.0 || -1"
 	                                type="text"
-	                                placeholder="Enter tester">
+	                                placeholder="Enter typeTrash">
+	                            </fd-input>
+	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+	                        </fd-form-input-message-group>
+	                    </div>
+                    </fd-form-item>
+                    <fd-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<fd-form-label for="idIsThereOil" dg-required="false" dg-colon="true">IsThereOil</fd-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--8">
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['IsThereOil'].$valid }}">
+	                            <fd-input id="idIsThereOil"
+	                                name="IsThereOil"
+	                                state="{{ forms.details['IsThereOil'].$valid ? '' : 'error' }}"
+									ng-required="false"
+	                                ng-model="entity.IsThereOil"
+	                                ng-minlength="${property.minLength} || 0"
+	                                ng-maxlength="${property.maxLength} || -1"
+	                                type="text"
+	                                placeholder="Enter IsThereOil">
+	                            </fd-input>
+	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+	                        </fd-form-input-message-group>
+	                    </div>
+                    </fd-form-item>
+                    <fd-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<fd-form-label for="idDateTime" dg-required="false" dg-colon="true">DateTime</fd-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--8">
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['DateTime'].$valid }}">
+	                            <fd-input id="idDateTime"
+	                                name="DateTime"
+	                                state="{{ forms.details['DateTime'].$valid ? '' : 'error' }}"
+									ng-required="false"
+	                                ng-model="entity.DateTime"
+	                                ng-minlength="${property.minLength} || 0"
+	                                ng-maxlength="${property.maxLength} || -1"
+	                                type="text"
+	                                placeholder="Enter DateTime">
 	                            </fd-input>
 	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
 	                        </fd-form-input-message-group>
