@@ -1,9 +1,9 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'server.entities.SensorData';
+		messageHubProvider.eventIdPrefix = 'server.SensorData.SensorData';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/ts/server/gen/api/entities/SensorDataService.ts";
+		entityApiProvider.baseUrl = "/services/ts/server/gen/api/SensorData/SensorDataService.ts";
 	}])
 	.controller('PageController', ['$scope', 'messageHub', 'entityApi', function ($scope, messageHub, entityApi) {
 

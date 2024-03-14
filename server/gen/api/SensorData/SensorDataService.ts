@@ -1,10 +1,10 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
 import { Extensions } from "sdk/extensions"
-import { SensorDataRepository, SensorDataEntityOptions } from "../../dao/entities/SensorDataRepository";
+import { SensorDataRepository, SensorDataEntityOptions } from "../../dao/SensorData/SensorDataRepository";
 import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
 
-const validationModules = await Extensions.loadExtensionModules("server-entities-SensorData", ["validate"]);
+const validationModules = await Extensions.loadExtensionModules("server-SensorData-SensorData", ["validate"]);
 
 @Controller
 class SensorDataService {
@@ -30,7 +30,7 @@ class SensorDataService {
         try {
             this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
-            response.setHeader("Content-Location", "/services/ts/server/gen/api/entities/SensorDataService.ts/" + entity.Id);
+            response.setHeader("Content-Location", "/services/ts/server/gen/api/SensorData/SensorDataService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
             return entity;
         } catch (error: any) {

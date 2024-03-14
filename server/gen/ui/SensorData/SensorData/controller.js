@@ -1,16 +1,16 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'server.entities.SensorData';
+		messageHubProvider.eventIdPrefix = 'server.SensorData.SensorData';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/ts/server/gen/api/entities/SensorDataService.ts";
+		entityApiProvider.baseUrl = "/services/ts/server/gen/api/SensorData/SensorDataService.ts";
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
 
 		//-----------------Custom Actions-------------------//
 		$http.get("/services/js/resources-core/services/custom-actions.js?extensionPoint=server-custom-action").then(function (response) {
-			$scope.pageActions = response.data.filter(e => e.perspective === "entities" && e.view === "SensorData" && (e.type === "page" || e.type === undefined));
-			$scope.entityActions = response.data.filter(e => e.perspective === "entities" && e.view === "SensorData" && e.type === "entity");
+			$scope.pageActions = response.data.filter(e => e.perspective === "SensorData" && e.view === "SensorData" && (e.type === "page" || e.type === undefined));
+			$scope.entityActions = response.data.filter(e => e.perspective === "SensorData" && e.view === "SensorData" && e.type === "entity");
 		});
 
 		$scope.triggerPageAction = function (actionId) {

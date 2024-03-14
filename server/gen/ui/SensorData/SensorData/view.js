@@ -8,8 +8,8 @@ const viewData = {
     label: "SensorData",
     factory: "frame",
     region: "center",
-    link: "/services/web/server/gen/ui/entities/SensorData/index.html",
-    perspectiveName: "entities",
+    link: "/services/web/server/gen/ui/SensorData/SensorData/index.html",
+    perspectiveName: "SensorData",
 };
 
 if (typeof exports !== 'undefined') {

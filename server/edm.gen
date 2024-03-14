@@ -3,20 +3,20 @@
   "brandUrl": "server",
   "title": "server",
   "description": "server",
+  "tablePrefix": "",
   "projectName": "server",
   "workspaceName": "workspace",
   "filePath": "edm.model",
   "templateId": "template-application-angular/template/template.js",
-  "tablePrefix": "",
   "perspectives": {
-    "entities": {
+    "SensorData": {
       "views": [
         "SensorData"
       ],
-      "name": "entities",
-      "label": "entities",
+      "name": "SensorData",
+      "label": "SensorData",
       "order": "100",
-      "icon": "/services/web/resources/unicons/copy.svg",
+      "icon": "/services/web/resources/unicons/10-plus.svg",
       "role": ""
     }
   },
@@ -86,8 +86,8 @@
       "menuLabel": "SensorData",
       "name": "SensorData",
       "navigationPath": "/Home",
-      "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-      "perspectiveName": "entities",
+      "perspectiveIcon": "/services/web/resources/unicons/10-plus.svg",
+      "perspectiveName": "SensorData",
       "perspectiveOrder": "100",
       "perspectiveRole": "",
       "title": "SensorData",

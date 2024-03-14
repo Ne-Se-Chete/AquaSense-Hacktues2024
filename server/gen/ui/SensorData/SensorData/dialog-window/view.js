@@ -6,8 +6,8 @@
 const viewData = {
     id: "SensorData-details",
     label: "SensorData",
-    link: "/services/web/server/gen/ui/entities/SensorData/dialog-window/index.html",
-    perspectiveName: "entities",
+    link: "/services/web/server/gen/ui/SensorData/SensorData/dialog-window/index.html",
+    perspectiveName: "SensorData",
 };
 
 if (typeof exports !== 'undefined') {

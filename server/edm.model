@@ -52,8 +52,8 @@
                 "menuLabel": "SensorData",
                 "name": "SensorData",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveName": "entities",
+                "perspectiveIcon": "/services/web/resources/unicons/10-plus.svg",
+                "perspectiveName": "SensorData",
                 "perspectiveOrder": "100",
                 "perspectiveRole": "",
                 "title": "SensorData",
@@ -61,7 +61,15 @@
                 "type": "PRIMARY"
             }
         ],
-        "perspectives": [],
+        "perspectives": [
+            {
+                "name": "SensorData",
+                "label": "SensorData",
+                "icon": "/services/web/resources/unicons/10-plus.svg",
+                "order": "100",
+                "role": {}
+            }
+        ],
         "navigations": []
     }
 }

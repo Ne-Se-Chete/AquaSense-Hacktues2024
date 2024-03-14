@@ -176,7 +176,7 @@ export class SensorDataRepository {
     }
 
     private async triggerEvent(data: SensorDataEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("server-entities-SensorData", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("server-SensorData-SensorData", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -184,6 +184,6 @@ export class SensorDataRepository {
                 console.error(error);
             }            
         });
-        producer.topic("server-entities-SensorData").send(JSON.stringify(data));
+        producer.topic("server-SensorData-SensorData").send(JSON.stringify(data));
     }
 }

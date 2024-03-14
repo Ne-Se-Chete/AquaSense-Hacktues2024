@@ -4,11 +4,11 @@
  * Do not modify the content as it may be re-generated again.
  */
 const perspectiveData = {
-	id: "entities",
-	name: "entities",
-	link: "/services/web/server/gen/ui/entities/index.html",
+	id: "SensorData",
+	name: "SensorData",
+	link: "/services/web/server/gen/ui/SensorData/index.html",
 	order: "100",
-	icon: "/services/web/resources/unicons/copy.svg",
+	icon: "/services/web/resources/unicons/10-plus.svg",
 };
 
 if (typeof exports !== 'undefined') {

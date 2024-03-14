@@ -5,12 +5,12 @@
  */
 exports.getTile = function () {
     return {
-        group: "entities",
+        group: "SensorData",
         name: "SensorData",
         caption: "Manage entity SensorData",
         tooltip: "SensorData",
         // icon: "file-o",
-        location: "/services/web/server/gen/ui/entities/index.html",
+        location: "/services/web/server/gen/ui/SensorData/index.html",
         order: "100",
         groupOrder: "100",
     };

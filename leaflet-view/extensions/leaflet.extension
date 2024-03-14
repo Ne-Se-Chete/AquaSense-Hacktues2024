@@ -1,0 +1,5 @@
+{
+    "module": "leaflet-view/services/leaflet-view.js",
+    "extensionPoint": "ide-view",
+    "description": "Leaflet View"
+}
