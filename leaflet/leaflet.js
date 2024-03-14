@@ -1,12 +1,32 @@
 var map = L.map('map');
 var markers = [];
 
-let customMarker = L.Marker.extend({
+var customMarker = L.Marker.extend({
     options: {
         time: "",
         PH: 0
     }
 });
+
+var LeafIcon = L.Icon.extend({
+    options: {
+        iconSize:     [38, 60],
+        shadowSize:   [50, 64],
+        iconAnchor:   [22, 94],
+        shadowAnchor: [4, 62],
+        popupAnchor:  [-3, -76]
+    }
+});
+
+var blackIcon = new LeafIcon({iconUrl: '../styles/black_marker.png'}),
+    blueIcon = new LeafIcon({iconUrl: '../styles/blue_marker.png'}),
+    yellowIcon = new LeafIcon({iconUrl: '../styles/yellow_marker.png'});
+
+
+
+L.marker([51.5, -0.09], {icon: blackIcon}).addTo(map).bindPopup("I am a black leaf.");
+L.marker([51.495, -0.083], {icon: blueIcon}).addTo(map).bindPopup("I am a blue leaf.");
+L.marker([51.49, -0.1], {icon: yellowIcon}).addTo(map).bindPopup("I am an yellow leaf.");
 
 
 data = [{
@@ -54,6 +74,7 @@ if (navigator.geolocation) {
 
 marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
 
+/*
 function createMarker(object){
     for(let i = 0; i < object.lenght; i++){
         let marker = new customMarker([object[i].latitude, object[i].longitude], {
@@ -63,3 +84,4 @@ function createMarker(object){
         });
     }
 }
+*/
