@@ -1,0 +1,12 @@
+{
+  "brand": "asd",
+  "brandUrl": "asd",
+  "title": "asd",
+  "description": "asd",
+  "projectName": "test",
+  "workspaceName": "workspace",
+  "filePath": "edm.model",
+  "templateId": "template-application-angular/template/template.js",
+  "perspectives": {},
+  "models": []
+}

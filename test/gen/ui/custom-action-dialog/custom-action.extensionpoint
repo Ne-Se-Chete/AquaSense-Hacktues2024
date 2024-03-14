@@ -1,0 +1,4 @@
+{
+    "name": "test-custom-action",
+    "description": "test - Extension Point for the Application Custom Action Providers"
+}

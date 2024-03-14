@@ -1,0 +1,5 @@
+{
+    "module": "test/gen/ui/launchpad/Home/view.js",
+    "extensionPoint": "test-view",
+    "description": "test - Application View"
+}
