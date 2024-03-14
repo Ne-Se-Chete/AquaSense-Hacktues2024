@@ -9,7 +9,7 @@ let customMarker = L.Marker.extend({
 });
 
 
-data = [{
+var data = [{
     latitude: 43.2321,
     longtitude: 23.4563,
     time: "08:09",
@@ -46,22 +46,29 @@ if (navigator.geolocation) {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
         map.setView([latitude, longitude], 15);
-        L.marker([latitude, longitude]).addTo(map);
         console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
     });
     } else {
     console.log("Geolocation is not supported by this browser.");
 }
 
-marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
 
 function createMarker(object){
-    for(let i = 0; i < object.length; i++) {
-        // let marker = new customMarker([object[i].latitude, object[i].longitude], {
-            
-        //     time: object[i].time,
-        //     PH: object[i].PH
-        // });
-        console.log(object[i])
-        L.marker([object[i].latitude, object[i].longtitude]).addTo(map).bindPopup("popupContent").openPopup()
+    object.forEach(markerData => {
+        const marker = new CustomMarker([markerData.coordinates.lat, markerData.coordinates.lng], {
+            date: markerData.date,
+            time: markerData.time,
+            pH: markerData.pH
+        });
+
+        marker.addTo(map)
+            .bindPopup(`
+                <b>Date:</b> ${marker.options.date}<br>
+                <b>Time:</b> ${marker.options.time}<br>
+                <b>pH:</b> ${marker.options.pH}
+            `);
+    });
+
+}
+
 createMarker(data);
