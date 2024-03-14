@@ -1,16 +1,26 @@
-# This is a sample Python script.
+import openai
+from openai import OpenAI
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+with open("key.txt", "r") as file:
+    key = file.read().strip()
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+client = OpenAI(api_key=key)
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+def generate_instructions(user_text):
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    content = (
+
+    )
+
+    response = client.chat.completions.create(
+        model="gpt-4",
+        messages=[{"role": "user", "content": user_text}],
+        max_tokens=50,
+    )
+
+    print(response.choices[0].message.content.strip())
+
+
+generate_instructions("what d"
+                      "oes a ph of 9 in a river mean pollution on a normal pH of 7")
