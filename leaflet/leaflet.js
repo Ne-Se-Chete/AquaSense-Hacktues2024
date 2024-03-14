@@ -1,7 +1,7 @@
 var map = L.map('map');
 var markers = [];
 
-let customMarker = L.Marker.extend({
+var customMarker = L.Marker.extend({
     options: {
         time: "",
         PH: 0
@@ -11,25 +11,25 @@ let customMarker = L.Marker.extend({
 
 var data = [{
     latitude: 43.2321,
-    longtitude: 23.4563,
+    longitude: 23.4563,
     time: "08:09",
     PH: 7
 },
 {
     latitude: 42.6499,
-    longtitude: 23.3638,
+    longitude: 23.3638,
     time: "09:15",
     PH: 8
 },
 {
     latitude: 42.6535,
-    longtitude: 23.3727,
+    longitude: 23.3727,
     time: "12:37",
     PH: 4
 },
 {
     latitude: 42.6698,
-    longtitude: 23.3836,
+    longitude: 23.3836,
     time: "03:48",
     PH: 5.6
 }
@@ -55,15 +55,13 @@ if (navigator.geolocation) {
 
 function createMarker(object){
     object.forEach(markerData => {
-        const marker = new CustomMarker([markerData.coordinates.lat, markerData.coordinates.lng], {
-            date: markerData.date,
+        const marker = new customMarker([markerData.latitude, markerData.longitude], {
             time: markerData.time,
             pH: markerData.pH
         });
 
         marker.addTo(map)
             .bindPopup(`
-                <b>Date:</b> ${marker.options.date}<br>
                 <b>Time:</b> ${marker.options.time}<br>
                 <b>pH:</b> ${marker.options.pH}
             `);
