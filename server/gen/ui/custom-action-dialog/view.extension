@@ -1,5 +1,0 @@
-{
-    "module": "test/gen/ui/custom-action-dialog/view.js",
-    "extensionPoint": "test-dialog-window",
-    "description": "test - Custom Action Dialog Window"
-}
