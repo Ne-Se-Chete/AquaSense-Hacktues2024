@@ -80,4 +80,4 @@ def recognize():
 
 
 if "__main__" in __name__:
-    recognize();
+    recognize()

@@ -5,7 +5,8 @@ from datetime import datetime
 from gps import *
 from object_recognition import recognize
 from camera import *
-
+from servo import config_servo_camera
+from get_from_db import get_last_latitude_longitude
 
 receive_string = ""
 
@@ -22,15 +23,21 @@ def decode_message(receive_string):
 
 
 def send_request():
-    ip = "192.168.100.45"
-    port = 8080
+    ip = "##.##.##.##"
+    port = ####
     url = f"http://{ip}:{port}/services/ts/server/gen/api/SensorData/SensorDataService.ts"
   
     type_trash = recognize()
 
     while(1):
+        last_save_latitude, last_save_longitude = get_last_latitude_longitude()
         latitude, longitude = start_gps()
         if latitude != -1 and longitude != -1:
+            if last_save_latitude == -1 and last_save_longitude == -1:
+                last_save_latitude = latitude
+                last_save_longitude = longitude
+            elif last_save_latitude - latitude < 0.0005 and last_save_longitude - longitude < 0.0005:
+                return False
             break
 
     UV, PH = decode_message(receive_string)
@@ -68,11 +75,12 @@ if "__main__" in __name__:
             print(receive_string)
             decode_message(receive_string)
             try:
+                config_servo_camera()
                 while(True):
                     if run_camera():
                         break
                 send_request()
             except Exception as e:
-                print("Camera error:", e)
+                print("Error:", e)
 
         time.sleep(6)
