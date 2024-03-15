@@ -11,6 +11,10 @@ def get_local_datetime():
     return datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
 
+def decode_message():
+    pass
+
+
 def send_request():
     ip = "192.168.80.134"
     port = 8080
@@ -26,14 +30,14 @@ def send_request():
         "ph": 8.6,  # TODO - from Arduino with Valeri's code to get the value
         "typeTrash": str(type_trash),
         "IsThereOil": True,  # TODO - from Arduino with Valeri's code to get the value
-        "DateTime": str(get_local_datetime())
+        "DateTime": 1710521530
     }
 
     auth_credentials = ("admin", "admin")
 
     response = requests.post(url, json=json_data, auth=auth_credentials)
 
-    if response.status_code == 200:
+    if response.status_code < 400:
         print("Request successful")
         print(response.text)
         return True
@@ -56,6 +60,7 @@ if "__main__" in __name__:
             receive_string = "done"
             try:
                 run_camera()
+                send_request()
             except Exception as e:
                 print("Application error:", e)
 
