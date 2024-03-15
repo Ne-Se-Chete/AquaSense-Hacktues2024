@@ -8,6 +8,5 @@ def moveServo(howmuch):
     p.start(0)           
 
     p.ChangeDutyCycle(int(howmuch))    
-
 p.stop()          
 GPIO.cleanup()          
