@@ -3,38 +3,41 @@ from libcamera import controls
 import os
 
 # Define the directory to save images
-image_directory = "./images"
+IMAGE_DIRECTORY = "./images"
 
-# Check if the directory exists, and if not, create it
-if not os.path.exists(image_directory):
-    os.makedirs(image_directory)
+def create_image_directory(directory):
+    if not os.path.exists(directory):
+        os.makedirs(directory)
 
-picam2 = Picamera2()
-# Prepare the camera configuration
-config = picam2.create_still_configuration()
-picam2.configure(config)
-picam2.start(show_preview=True)
-picam2.set_controls({"AfMode": controls.AfModeEnum.Continuous})
-
-# Function to get current image ID
 def get_current_image_id():
-    # Open the file "current_image.txt" to read the current image ID
     with open("current_image.txt", "r") as file:
         current_image_id = file.read().strip()
     return current_image_id
 
+def capture_and_save_image(picamera, directory, image_filename):
+    image_path = os.path.join(directory, image_filename)
+    picamera.capture_file(image_path)
 
-# Function to capture and save image
-def capture_and_save_image(image_filename):
-    # The path where the image will be saved
-    image_path = os.path.join(image_directory, image_filename)
-    # Capture the image to the specified file
-    picam2.capture_file(image_path)
+def run_camera():
+    create_image_directory(IMAGE_DIRECTORY)
 
-# Example: Capturing and saving an image
-current_image_id = get_current_image_id()
-image_filename = f"image_{current_image_id}.jpg"
-capture_and_save_image(image_filename)
+    picam2 = Picamera2()
+    config = picam2.create_still_configuration()
+    picam2.configure(config)
+    picam2.start(show_preview=True)
+    picam2.set_controls({"AfMode": controls.AfModeEnum.Continuous})
 
-# Don't forget to stop the preview when done
-picam2.stop()
+    current_image_id = get_current_image_id()
+    image_filename = f"image_{current_image_id}.jpg"
+    capture_and_save_image(picam2, IMAGE_DIRECTORY, image_filename)
+
+    picam2.stop()
+
+    return True
+
+
+def main():
+    run_camera()
+
+if __name__ == "__main__":
+    main()
