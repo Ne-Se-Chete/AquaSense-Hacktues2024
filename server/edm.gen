@@ -16,16 +16,6 @@
       "name": "SensorData",
       "label": "SensorData",
       "order": "100",
-      "icon": "/services/web/resources/unicons/10-plus.svg",
-      "role": ""
-    },
-    "LeafletMap": {
-      "views": [
-        "LeafletMap"
-      ],
-      "name": "LeafletMap",
-      "label": "LeafletMap",
-      "order": "150",
       "icon": "/services/web/resources/unicons/map.svg",
       "role": ""
     }
@@ -229,7 +219,7 @@
       "menuLabel": "SensorData",
       "name": "SensorData",
       "navigationPath": "/Home",
-      "perspectiveIcon": "/services/web/resources/unicons/10-plus.svg",
+      "perspectiveIcon": "/services/web/resources/unicons/map.svg",
       "perspectiveName": "SensorData",
       "perspectiveOrder": "100",
       "perspectiveRole": "",
@@ -242,58 +232,6 @@
       ],
       "primaryKeysString": "Id",
       "hasDates": true
-    },
-    {
-      "properties": [
-        {
-          "calculatedPropertyExpressionCreate": "",
-          "calculatedPropertyExpressionUpdate": "",
-          "dataAutoIncrement": true,
-          "dataLength": "0",
-          "dataName": "LEAFLETMAP_ID",
-          "dataNullable": true,
-          "dataPrimaryKey": true,
-          "dataType": "INTEGER",
-          "dataUnique": false,
-          "isCalculatedProperty": false,
-          "isRequiredProperty": false,
-          "name": "Id",
-          "widgetIsMajor": true,
-          "widgetLength": "20",
-          "widgetSize": "",
-          "widgetType": "TEXTBOX",
-          "dataNotNull": false,
-          "widgetLabel": "Id",
-          "widgetDropdownUrl": "",
-          "dataTypeJava": "int",
-          "dataTypeTypescript": "number",
-          "inputRule": ""
-        }
-      ],
-      "caption": "Manage entity LeafletMap",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"LEAFLETMAP\"",
-      "dataName": "LEAFLETMAP",
-      "dataQuery": "",
-      "disableGeneration": "false",
-      "icon": "/services/web/resources/unicons/file.svg",
-      "layoutType": "MANAGE",
-      "menuIndex": "100",
-      "menuKey": "leafletmap",
-      "menuLabel": "LeafletMap",
-      "name": "LeafletMap",
-      "navigationPath": "/Home",
-      "perspectiveIcon": "/services/web/resources/unicons/map.svg",
-      "perspectiveName": "LeafletMap",
-      "perspectiveOrder": "150",
-      "perspectiveRole": "",
-      "title": "LeafletMap",
-      "tooltip": "LeafletMap",
-      "type": "PRIMARY",
-      "referencedProjections": [],
-      "primaryKeys": [
-        "Id"
-      ],
-      "primaryKeysString": "Id"
     }
   ]
 }

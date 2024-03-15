@@ -1,14 +1,13 @@
 const viewData = {
     id: "leaflet",
     label: "Leaflet",
-    factory: "frame",
-    lazyLoad: true,
-    region: "center",
-    link: "../leaflet-view/leaflet.html",
-    perspectiveName: "LeafletMap"
+    perspective: "SensorData",
+    view: "SensorData",
+    type: "page",
+    link: "/services/web/leaflet-view/leaflet.html"
 };
 if (typeof exports !== 'undefined') {
-    exports.getView = function () {
+    exports.getAction = function () {
         return viewData;
     }
 }

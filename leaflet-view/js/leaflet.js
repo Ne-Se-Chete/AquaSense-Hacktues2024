@@ -9,17 +9,6 @@ leaflet.controller('LeafletViewController', ['$scope', "$http", '$document', 'me
         busyText: "Loading...",
     };
 
-    // $http.get(URL_GET_DATA)
-    //     .then(
-    //         (response) => {
-    //             console.log(response.data);
-    //             data = response.data
-    //         },
-    //         (error) => {
-    //             console.log(`Response: ${JSON.stringify(error)}`);
-    //         }
-    //     );
-
     $scope.loadMap = function () {
         var map = L.map('map');
 
@@ -29,25 +18,6 @@ leaflet.controller('LeafletViewController', ['$scope', "$http", '$document', 'me
                 pH: 0
             }
         });
-
-        /**
-         * 
-         * DateTime: "1970-01-20 21:08:41.53"
-            Id: 1
-            IsThereOil: true
-            Latitude: 42.6535
-            Longitude: 23.3727
-            ph: 7
-            typeTrash: "trash"
-         */
-        let data = [{
-            Latitude: 43.2321,
-            Longitude: 23.4563,
-            DateTime: "08:09",
-            ph: 7,
-            typeTrash: "trash1",
-            IsThereOil: true
-        }];
 
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
@@ -62,6 +32,7 @@ leaflet.controller('LeafletViewController', ['$scope', "$http", '$document', 'me
                 console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
             });
         } else {
+            map.setView([0, 0], 15);
             console.log("Geolocation is not supported by this browser.");
         }
 

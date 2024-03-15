@@ -62,20 +62,6 @@
                         "name": "SENSORDATA_DATETIME"
                     }
                 ]
-            },
-            {
-                "name": "LEAFLETMAP",
-                "type": "TABLE",
-                "columns": [
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "primaryKey": true,
-                        "identity": true,
-                        "nullable": true,
-                        "name": "LEAFLETMAP_ID"
-                    }
-                ]
             }
         ]
     },

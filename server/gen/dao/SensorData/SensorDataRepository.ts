@@ -261,6 +261,6 @@ export class SensorDataRepository {
                 console.error(error);
             }            
         });
-        producer.topic("server-SensorData-SensorData").send(JSON.stringify(data));
+        producer.topic("server/SensorData/SensorData").send(JSON.stringify(data));
     }
 }

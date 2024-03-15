@@ -1,5 +1,0 @@
-{
-    "module": "server/gen/ui/LeafletMap/LeafletMap/dialog-filter/view.js",
-    "extensionPoint": "server-dialog-window",
-    "description": "server - Application Dialog Window"
-}

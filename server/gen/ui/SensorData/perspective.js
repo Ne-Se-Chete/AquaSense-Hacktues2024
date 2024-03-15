@@ -8,7 +8,7 @@ const perspectiveData = {
 	name: "SensorData",
 	link: "/services/web/server/gen/ui/SensorData/index.html",
 	order: "100",
-	icon: "/services/web/resources/unicons/10-plus.svg",
+	icon: "/services/web/resources/unicons/map.svg",
 };
 
 if (typeof exports !== 'undefined') {
