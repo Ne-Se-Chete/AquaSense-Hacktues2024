@@ -42,7 +42,7 @@ def start_gps():
             print("Application closed!")
         except Exception as e:
             print("Application error:", e)
-            
+    
     return latitude_final, longitude_final
 
 # Call the start_gps function
