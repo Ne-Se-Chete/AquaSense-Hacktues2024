@@ -9,6 +9,17 @@ leaflet.controller('LeafletViewController', ['$scope', "$http", '$document', 'me
         busyText: "Loading...",
     };
 
+    // $http.get(URL_GET_DATA)
+    //     .then(
+    //         (response) => {
+    //             console.log(response.data);
+    //             data = response.data
+    //         },
+    //         (error) => {
+    //             console.log(`Response: ${JSON.stringify(error)}`);
+    //         }
+    //     );
+
     $scope.loadMap = function () {
         var map = L.map('map');
 
@@ -19,53 +30,24 @@ leaflet.controller('LeafletViewController', ['$scope', "$http", '$document', 'me
             }
         });
 
-
+        /**
+         * 
+         * DateTime: "1970-01-20 21:08:41.53"
+            Id: 1
+            IsThereOil: true
+            Latitude: 42.6535
+            Longitude: 23.3727
+            ph: 7
+            typeTrash: "trash"
+         */
         let data = [{
-            latitude: 43.2321,
-            longitude: 23.4563,
-            time: "08:09",
-            pH: 7
+            Latitude: 43.2321,
+            Longitude: 23.4563,
+            DateTime: "08:09",
+            ph: 7,
+            typeTrash: "trash1",
+            IsThereOil: true
         }];
-
-        $http.get(URL_GET_DATA)
-            .then(
-                (response) => {
-                    console.log(response.data);
-                    data = response.data
-                },
-                (error) => {
-                    console.log(`Response: ${JSON.stringify(error)}`);
-                }
-            );
-
-
-        // var data = [{
-        //     latitude: 43.2321,
-        //     longitude: 23.4563,
-        //     time: "08:09",
-        //     pH: 7
-        // },
-        // {
-        //     latitude: 42.6499,
-        //     longitude: 23.3638,
-        //     time: "09:15",
-        //     pH: 8
-        // },
-        // {
-        //     latitude: 42.6535,
-        //     longitude: 23.3727,
-        //     time: "12:37",
-        //     pH: 4
-        // },
-        // {
-        //     latitude: 42.6698,
-        //     longitude: 23.3836,
-        //     // time: "03:48",
-        //     time: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        //     pH: 5.6
-        // }
-        // ]
-
 
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
@@ -88,9 +70,9 @@ leaflet.controller('LeafletViewController', ['$scope', "$http", '$document', 'me
             let markers = [];
 
             object.forEach(markerData => {
-                const marker = new customMarker([markerData.latitude, markerData.longitude], {
-                    time: markerData.time,
-                    pH: markerData.pH
+                const marker = new customMarker([markerData.Latitude, markerData.Longitude], {
+                    time: markerData.DateTime,
+                    pH: markerData.ph
                 });
                 markers.push(marker);
                 marker.addTo(map)
@@ -103,8 +85,16 @@ leaflet.controller('LeafletViewController', ['$scope', "$http", '$document', 'me
             });
         }
 
-        createMarker(data);
-        $scope.state.isBusy = false;
+        $http.get(URL_GET_DATA)
+            .then((response) => {
+                try {
+                    createMarker(response.data);
+                } catch (e) {
+                    alert(e);
+                }
+                $scope.state.isBusy = false;
+            })
+
     };
 
     // Get the view parameters. If you don't need this, you can remove ViewParameters altogether.
