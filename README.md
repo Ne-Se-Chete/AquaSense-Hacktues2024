@@ -51,4 +51,4 @@ AquaSense е универсална система за сензори, създ
 
 ## Нашият отбор
 
-![Team](media_files/team_photo)
+![Team](media_files/team_photo3.jpg)
