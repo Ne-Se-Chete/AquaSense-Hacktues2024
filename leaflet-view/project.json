@@ -1,3 +1,8 @@
 {
-    "guid": "leaflet-view"
+    "guid": "leaflet-view",
+    "repository": {
+        "type": "git",
+        "branch": "main",
+        "url": "https://github.com/Ne-Se-Chete/hacktues2024.git"
+    }
 }
