@@ -1,1 +1,24 @@
-{"guid":"server","actions":[{"name":"Build TypeScript","commands":[{"os":"unix","command":"tsc"},{"os":"windows","command":"cmd /c tsc"}],"registry":"true"}]}
+{
+  "guid": "server",
+  "actions":[
+    {
+      "name":"Build TypeScript",
+      "commands":[
+        {
+          "os":"unix",
+          "command":"tsc"
+        },
+        {
+          "os":"windows",
+          "command":"cmd /c tsc"
+        }
+      ],
+      "registry":"true"
+    }
+  ],
+  "repository": {
+        "type": "git",
+        "branch": "main",
+        "url": "https://github.com/Ne-Se-Chete/hacktues2024.git"
+    }
+}
