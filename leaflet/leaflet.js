@@ -2,36 +2,50 @@ var map = L.map('map');
 
 var customMarker = L.Marker.extend({
     options: {
-        time: "",
-        pH: 0
+        gptPrompt: "",
+        ph: 7,
+        typeTrash: "",
+        IsThereOil: "",
+        DateTime: "08:09"
     }
 });
 
 
 var data = [{
-    latitude: 43.2321,
-    longitude: 23.4563,
-    time: "08:09",
-    pH: 7
+    Latitude: 43.2321,
+    Longitude: 23.4563,
+    gptPrompt: "",
+    ph: 7,
+    typeTrash: "",
+    IsThereOil: "",
+    DateTime: "08:09"
 },
 {
-    latitude: 42.6499,
-    longitude: 23.3638,
-    time: "09:15",
-    pH: 8
+    Latitude: 42.6499,
+    Longitude: 23.3638,
+    gptPrompt: "",
+    ph: 8,
+    typeTrash: "",
+    IsThereOil: "",
+    DateTime: "09:15"
 },
 {
-    latitude: 42.6535,
-    longitude: 23.3727,
-    time: "12:37",
-    pH: 4
+    Latitude: 42.6535,
+    Longitude: 23.3727,
+    gptPrompt: "",
+    ph: 4,
+    typeTrash: "",
+    IsThereOil: "",
+    DateTime: "12:37"
 },
 {
-    latitude: 42.6698,
-    longitude: 23.3836,
-    // time: "03:48",
-    time: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    pH: 5.6
+    Latitude: 42.6698,
+    Longitude: 23.3836,
+    gptPrompt: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    ph: 5.6,
+    typeTrash: "Bottle",
+    IsThereOil: "No",
+    DateTime: "15.03.2024 EET 23:33"
 }
 ]
 
@@ -57,18 +71,33 @@ function createMarker(object){
     let markers = [];
 
     object.forEach(markerData => {
-        const marker = new customMarker([markerData.latitude, markerData.longitude], {
-            time: markerData.time,
-            pH: markerData.pH
+        const marker = new customMarker([markerData.Latitude, markerData.Longitude], {
+            gptPrompt: markerData.gptPrompt,
+            ph: markerData.ph,
+            typeTrash: markerData.typeTrash,
+            IsThereOil: markerData.IsThereOil,
+            DateTime: markerData.DateTime
+            
         });
+
+        let popupContent = document.createElement('div');
+        popupContent.innerHTML = `
+        <div id="popup">
+            <b>Information about event:</b> ${marker.options.gptPrompt}<br><br>
+            <b>-------------</b><br>
+            <b>Raw data</b><br>
+            <b>-------------</b><br>
+            <b>pH:</b> ${marker.options.ph}<br>
+            <b>typeTrash:</b> ${marker.options.typeTrash}<br>
+            <b>IsThereOil:</b> ${marker.options.IsThereOil}<br>
+            <b>DateTime:</b> ${marker.options.DateTime}<br><br>
+        </div>`;
+
         markers.push(marker);
         marker.addTo(map)
-            .bindPopup(`
-                <div id="popup">
-                    <b>Time:</b> ${marker.options.time}<br>
-                    <b>pH:</b> ${marker.options.pH}
-                </div>
-            `);
+
+        let popup = L.popup().setContent(popupContent);
+        marker.bindPopup(popup);
     });
 }
 
