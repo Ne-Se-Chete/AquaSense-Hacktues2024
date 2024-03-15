@@ -1,6 +1,8 @@
 const leaflet = angular.module('leaflet', ['ideUI', 'ideView']);
 
-leaflet.controller('LeafletViewController', ['$scope', '$document', 'messageHub', 'ViewParameters', function ($scope, $document, messageHub, ViewParameters) {
+const URL_GET_DATA = "/services/ts/server/gen/api/SensorData/SensorDataService.ts"
+
+leaflet.controller('LeafletViewController', ['$scope', "$http", '$document', 'messageHub', 'ViewParameters', function ($scope, $http, $document, messageHub, ViewParameters) {
     $scope.state = {
         isBusy: true,
         error: false,
@@ -18,32 +20,51 @@ leaflet.controller('LeafletViewController', ['$scope', '$document', 'messageHub'
         });
 
 
-        var data = [{
+        let data = [{
             latitude: 43.2321,
             longitude: 23.4563,
             time: "08:09",
             pH: 7
-        },
-        {
-            latitude: 42.6499,
-            longitude: 23.3638,
-            time: "09:15",
-            pH: 8
-        },
-        {
-            latitude: 42.6535,
-            longitude: 23.3727,
-            time: "12:37",
-            pH: 4
-        },
-        {
-            latitude: 42.6698,
-            longitude: 23.3836,
-            // time: "03:48",
-            time: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-            pH: 5.6
-        }
-        ]
+        }];
+
+        $http.get(URL_GET_DATA)
+            .then(
+                (response) => {
+                    console.log(response.data);
+                    data = response.data
+                },
+                (error) => {
+                    console.log(`Response: ${JSON.stringify(error)}`);
+                }
+            );
+
+
+        // var data = [{
+        //     latitude: 43.2321,
+        //     longitude: 23.4563,
+        //     time: "08:09",
+        //     pH: 7
+        // },
+        // {
+        //     latitude: 42.6499,
+        //     longitude: 23.3638,
+        //     time: "09:15",
+        //     pH: 8
+        // },
+        // {
+        //     latitude: 42.6535,
+        //     longitude: 23.3727,
+        //     time: "12:37",
+        //     pH: 4
+        // },
+        // {
+        //     latitude: 42.6698,
+        //     longitude: 23.3836,
+        //     // time: "03:48",
+        //     time: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        //     pH: 5.6
+        // }
+        // ]
 
 
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
