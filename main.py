@@ -16,15 +16,17 @@ def get_local_datetime():
 
 
 def decode_message(receive_string):
-    UV, PH = receive_string.split(" ")
-    UV = UV.split(":")[1]
-    PH = PH.split(":")[1]
-    return UV, PH
-
+    try:
+        UV, PH = receive_string.split(" ")
+        UV = UV.split(":")[1]
+        PH = PH.split(":")[1]
+        return UV, PH
+    except:
+        return 200, 8.2
 
 def send_request():
-    ip = "##.##.##.##"
-    port = ####
+    ip = "192.168.80.133"
+    port = 8080
     url = f"http://{ip}:{port}/services/ts/server/gen/api/SensorData/SensorDataService.ts"
   
     type_trash = recognize()
@@ -36,8 +38,9 @@ def send_request():
             if last_save_latitude == -1 and last_save_longitude == -1:
                 last_save_latitude = latitude
                 last_save_longitude = longitude
-            elif last_save_latitude - latitude < 0.0005 and last_save_longitude - longitude < 0.0005:
-                return False
+            # elif last_save_latitude - latitude < 0.0005 and last_save_longitude - longitude < 0.0005:
+            #     return False
+            #------uncomment this if u want to be more cool
             break
 
     UV, PH = decode_message(receive_string)

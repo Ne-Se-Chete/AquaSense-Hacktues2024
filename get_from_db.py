@@ -1,8 +1,8 @@
 import requests
 
 def get_last_latitude_longitude():
-    ip = "##.##.##.##"
-    port = ####
+    ip = "192.168.80.133"
+    port = 8080
     url = f"http://{ip}:{port}/services/ts/server/gen/api/SensorData/SensorDataService.ts"
     username = "admin"
     password = "admin"
