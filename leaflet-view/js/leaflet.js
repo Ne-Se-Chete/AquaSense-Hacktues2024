@@ -89,11 +89,10 @@ leaflet.controller('LeafletViewController', ['$scope', "$http", '$document', 'me
                 $http.post('https://api.openai.com/v1/chat/completions', getRequestData(instruction, tokens), {
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': 'Bearer ' + "your_key" // Replace YOUR_API_KEY with your actual API key
+                        'Authorization': 'Bearer ' + "YOUR_KEY" // Replace YOUR_API_KEY with your actual API key
                     }
                 }).then(function (response) {
                     marker.options.gptPrompt = response.data.choices[0].message.content;
-                    debugger
 
                     let popupContent = document.createElement('div');
                     popupContent.innerHTML = `
@@ -113,7 +112,25 @@ leaflet.controller('LeafletViewController', ['$scope', "$http", '$document', 'me
 
                     let popup = L.popup().setContent(popupContent);
                     marker.bindPopup(popup);
-                });
+                },
+                    function (_) {
+                        let popupContent = document.createElement('div');
+                        popupContent.innerHTML = `
+                        <div id="popup">
+                            <b>Information about event:</b> <br><br>
+                            <b>pH:</b> ${marker.options.ph}<br>
+                            <b>typeTrash:</b> ${marker.options.typeTrash}<br>
+                            <b>IsThereOil:</b> ${marker.options.IsThereOil}<br>
+                            <b>DateTime:</b> ${marker.options.DateTime}<br><br>
+                        </div>`;
+
+                        markers.push(marker);
+                        marker.addTo(map)
+
+                        let popup = L.popup().setContent(popupContent);
+                        marker.bindPopup(popup);
+                    }
+                );
             });
         }
 
