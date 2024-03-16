@@ -1,0 +1,69 @@
+{
+    "schema": {
+        "structures": [
+            {
+                "name": "AquaSense_SENSORDATA",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "SENSORDATA_ID"
+                    },
+                    {
+                        "type": "DOUBLE",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SENSORDATA_TESTER"
+                    },
+                    {
+                        "type": "DOUBLE",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SENSORDATA_PROPERTY3"
+                    },
+                    {
+                        "type": "DOUBLE",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SENSORDATA_PROPERTY4"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 30,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SENSORDATA_TYPETRASH"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SENSORDATA_ISTHEREOIL"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SENSORDATA_DATETIME"
+                    }
+                ]
+            }
+        ]
+    },
+    "datasource": "DefaultDB"
+}

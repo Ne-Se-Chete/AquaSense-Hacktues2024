@@ -1,0 +1,4 @@
+{
+    "name": "server-dialog-window",
+    "description": "server - Extension Point for the Application Dialog Window Providers"
+}

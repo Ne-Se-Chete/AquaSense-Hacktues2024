@@ -1,0 +1,5 @@
+{
+    "module": "server/gen/ui/launchpad/Home/view.js",
+    "extensionPoint": "server-view",
+    "description": "server - Application View"
+}

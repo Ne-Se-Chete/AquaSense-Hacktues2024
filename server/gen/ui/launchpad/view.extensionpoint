@@ -1,0 +1,4 @@
+{
+    "name": "server-view",
+    "description": "server - Extension Point for the Application View Providers"
+}

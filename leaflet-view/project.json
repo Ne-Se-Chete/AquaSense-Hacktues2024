@@ -1,0 +1,24 @@
+{
+    "guid": "leaflet-view",
+    "repository": {
+        "type": "git",
+        "branch": "feat/dirigible-cloud",
+        "url": "https://github.com/Ne-Se-Chete/hacktues2024.git"
+    },
+    "actions": [
+        {
+            "name": "Build TypeScript",
+            "commands": [
+                {
+                    "os": "unix",
+                    "command": "tsc"
+                },
+                {
+                    "os": "windows",
+                    "command": "cmd /c tsc"
+                }
+            ],
+            "registry": "true"
+        }
+    ]
+}

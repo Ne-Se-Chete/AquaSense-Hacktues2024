@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="leaflet" ng-controller="LeafletViewController">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" sizes="any" href="data:;base64,iVBORw0KGgo=">
+        <title dg-view-title></title>
+        <script type="text/javascript" src="services/leaflet-view.js"></script>
+        <theme></theme>
+        <script type="text/javascript" src="/services/js/resources-core/services/loader.js?id=ide-view-js"></script>
+        <link type="text/css" rel="stylesheet" href="/services/js/resources-core/services/loader.js?id=ide-view-css" />
+        <link type="text/css" rel="stylesheet" href="css/styles.css" />
+        <script type="text/javascript" src="js/leaflet.js"></script>
+
+        <!-- Use of CDN is allowed only in non-offical views! -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+            integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    </head>
+
+    <body class="dg-center">
+        <fd-busy-indicator-extended class="dg-fill-parent" ng-hide="state.error || !state.isBusy" dg-size="l">
+            {{state.busyText}}
+        </fd-busy-indicator-extended>
+        <div class="dg-vbox dg-fill-parent" ng-show="!state.error && !state.isBusy">
+            <fd-toolbar>
+                <fd-toolbar-spacer></fd-toolbar-spacer>
+                <fd-button dg-label="Action" title="Action" dg-type="transparent" glyph="sap-icon--add"
+                    ng-click="actionClick()">
+                </fd-button>
+            </fd-toolbar>
+            <div id="map" style="height:{{mapHeight}}px"></div>
+        </div>
+        <fd-message-page glyph="sap-icon--error" ng-if="state.error">
+            <fd-message-page-title>Editor encounterd an error!</fd-message-page-title>
+            <fd-message-page-subtitle>{{errorMessage}}</fd-message-page-subtitle>
+        </fd-message-page>
+    </body>
+
+</html>

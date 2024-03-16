@@ -1,0 +1,4 @@
+{
+    "name": "server-custom-action",
+    "description": "server - Extension Point for the Application Custom Action Providers"
+}
