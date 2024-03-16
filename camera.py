@@ -4,6 +4,8 @@ import os
 
 # Define the directory to save images
 IMAGE_DIRECTORY = "./images"
+picam2 = Picamera2()
+
 
 def create_image_directory(directory):
     if not os.path.exists(directory):
@@ -18,10 +20,12 @@ def capture_and_save_image(picamera, directory, image_filename):
     image_path = os.path.join(directory, image_filename)
     picamera.capture_file(image_path)
 
+def reboot_camera():
+    picam2.stop()
+
 def run_camera():
     create_image_directory(IMAGE_DIRECTORY)
 
-    picam2 = Picamera2()
     config = picam2.create_still_configuration()
     picam2.configure(config)
     picam2.start(show_preview=True)

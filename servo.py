@@ -1,12 +1,18 @@
-import RPi.GPIO as GPIO
-from time import sleep   
-GPIO.setmode(GPIO.BCM) 
+from gpiozero import Servo
+from time import sleep
 
-def moveServo(howmuch):
-    GPIO.setup(17,GPIO.OUT)  
-    p = GPIO.PWM(17, 50)    
-    p.start(0)           
+def config_servo_camera():
+    servo = Servo(17)
 
-    p.ChangeDutyCycle(int(howmuch))    
-p.stop()          
-GPIO.cleanup()          
+    servo.min()
+    sleep(0.5)
+    servo.mid()
+    sleep(0.5)
+    servo.max()
+    sleep(0.5)
+    servo.mid()
+    sleep(0.5)
+    servo.max()
+
+if "__main__" in __name__:
+    config_servo_camera()
