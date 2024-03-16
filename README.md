@@ -35,7 +35,7 @@ AquaSense е универсална система за сензори, създ
 4. **Мониторинг**: Непрекъснато мониторирайте качеството на водата и нивата на замърсяване, използвайки информацията, предоставена от AquaSense.
 
 ## Схеми
-![Circuit diagram](media_files/circuit_diagram.png)
+![Circuit diagram](media_files/circuit_diagram_FINAL.png)
 
 ## Приноси
 
