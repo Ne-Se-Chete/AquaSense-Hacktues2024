@@ -2,7 +2,7 @@
     "schema": {
         "structures": [
             {
-                "name": "SENSORDATA",
+                "name": "AquaSense_SENSORDATA",
                 "type": "TABLE",
                 "columns": [
                     {

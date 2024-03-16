@@ -114,7 +114,7 @@ interface SensorDataEntityEvent {
 export class SensorDataRepository {
 
     private static readonly DEFINITION = {
-        table: "SENSORDATA",
+        table: "AquaSense_SENSORDATA",
         properties: [
             {
                 name: "Id",
@@ -180,7 +180,7 @@ export class SensorDataRepository {
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
-            table: "SENSORDATA",
+            table: "AquaSense_SENSORDATA",
             entity: entity,
             key: {
                 name: "Id",
@@ -196,7 +196,7 @@ export class SensorDataRepository {
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
-            table: "SENSORDATA",
+            table: "AquaSense_SENSORDATA",
             entity: entity,
             key: {
                 name: "Id",
@@ -226,7 +226,7 @@ export class SensorDataRepository {
         this.dao.remove(id);
         this.triggerEvent({
             operation: "delete",
-            table: "SENSORDATA",
+            table: "AquaSense_SENSORDATA",
             entity: entity,
             key: {
                 name: "Id",
@@ -241,7 +241,7 @@ export class SensorDataRepository {
     }
 
     public customDataCount(): number {
-        const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "SENSORDATA"');
+        const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "AquaSense_SENSORDATA"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
                 return resultSet[0].COUNT;

@@ -1,9 +1,9 @@
 {
-  "brand": "server",
-  "brandUrl": "server",
-  "title": "server",
-  "description": "server",
-  "tablePrefix": "",
+  "tablePrefix": "AquaSense_",
+  "brand": "AquaSense",
+  "brandUrl": "https://raw.githubusercontent.com/Ne-Se-Chete/hacktues2024/main/media_files/logo.png",
+  "title": "AquaSense Platform",
+  "description": "\"AquaSense\" е иновативна система за наблюдение на водната среда, разработена за измерване на pH нивата, идентифициране на нефтени замърсявания и локализиране на наддводни обекти. ",
   "projectName": "server",
   "workspaceName": "workspace",
   "filePath": "edm.model",
@@ -208,7 +208,7 @@
         }
       ],
       "caption": "Manage entity SensorData",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"SENSORDATA\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"AquaSense_SENSORDATA\"",
       "dataName": "SENSORDATA",
       "dataQuery": "",
       "disableGeneration": "false",
