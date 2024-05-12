@@ -1,4 +1,5 @@
 const leaflet = angular.module('leaflet', ['ideUI', 'ideView']);
+const CHATGPTKEY = ""
 
 const URL_GET_DATA = "/services/ts/server/gen/api/SensorData/SensorDataService.ts"
 
@@ -36,7 +37,7 @@ leaflet.controller('LeafletViewController', ['$scope', "$http", '$document', 'me
                 ph: 7,
                 typeTrash: "",
                 IsThereOil: "",
-                DateTime: "08:09"
+                DateTime: new Date()
             }
         });
 
@@ -77,7 +78,7 @@ leaflet.controller('LeafletViewController', ['$scope', "$http", '$document', 'me
                 let tokens = 60;
 
                 if (marker.options.typeTrash != "none") {
-                    instruction += ` what ${marker.options.typeTrash} in the watter means`
+                    instruction += ` what trash ${marker.options.typeTrash} in the watter means`
                     tokens += 20
                 }
 
@@ -89,7 +90,7 @@ leaflet.controller('LeafletViewController', ['$scope', "$http", '$document', 'me
                 $http.post('https://api.openai.com/v1/chat/completions', getRequestData(instruction, tokens), {
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': 'Bearer ' + "YOUR_KEY" // Replace YOUR_API_KEY with your actual API key
+                        'Authorization': 'Bearer ' + CHATGPTKEY // Replace YOUR_API_KEY with your actual API key
                     }
                 }).then(function (response) {
                     marker.options.gptPrompt = response.data.choices[0].message.content;
